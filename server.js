@@ -11,6 +11,7 @@ require('./config/database')
 
 const app = express();
 
+
 app.use(logger('dev'));
 app.use(express.json());
 
@@ -27,6 +28,8 @@ app.use(require('./config/checkToken'))
 const port = process.env.PORT || 3001;
 
 app.use('/api/users', require('./routes/api/users'))
+app.use('/notes', require('./routes/notes/notes'))
+
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
